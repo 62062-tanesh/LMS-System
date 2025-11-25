@@ -1,7 +1,7 @@
 // ===== API BASE URL (ALWAYS use deployed backend in production) =====
 // 🔴 CHANGE THIS to your actual backend URL from Vercel
 // Example: "https://lms-backend-abcde.vercel.app"
-const API_BASE_URL = "https://your-backend.vercel.app";
+const API_BASE_URL = "https://lms-system-tau.vercel.app";
 
 // ===== Mock Data for Demo =====
 const courses = [
