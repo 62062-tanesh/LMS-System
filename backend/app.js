@@ -1,3 +1,7 @@
+// ===== API BASE URL =====
+// Backend deployed on Vercel
+const API_BASE_URL = "https://lms-system-tau.vercel.app";
+
 // ===== Mock Data for Demo =====
 const courses = [
     {
@@ -137,7 +141,9 @@ function validateEmail(email) {
 
 // ===== AUTHENTICATION =====
 function authenticateUser(role, email, password) {
-    fetch("http://localhost:5000/api/login", {
+    console.log("👉 Calling login API at:", `${API_BASE_URL}/api/login`);
+
+    fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ role, email, password })
@@ -146,7 +152,7 @@ function authenticateUser(role, email, password) {
         const data = await res.json();
 
         if (!res.ok) {
-            alert("❌ Login failed: " + data.message);
+            alert("❌ Login failed: " + (data.message || "Unknown error"));
             return;
         }
 
@@ -154,7 +160,7 @@ function authenticateUser(role, email, password) {
         loginSuccess(data.user);
     })
     .catch(err => {
-        console.error(err);
+        console.error("NETWORK ERROR:", err);
         alert("Network error");
     });
 }
