@@ -1,16 +1,7 @@
-// ===== API BASE URL CONFIG =====
-// 🔴 Change this to your actual backend URL from Vercel
+// ===== API BASE URL (ALWAYS use deployed backend in production) =====
+// 🔴 CHANGE THIS to your actual backend URL from Vercel
 // Example: "https://lms-backend-abcde.vercel.app"
-const PROD_BACKEND_URL = "https://your-backend.vercel.app";
-
-// For local development
-const LOCAL_BACKEND_URL = "http://localhost:5000";
-
-// Auto-select base URL: localhost -> local, otherwise -> Vercel backend
-const API_BASE_URL =
-  window.location.hostname === "localhost"
-    ? LOCAL_BACKEND_URL
-    : PROD_BACKEND_URL;
+const API_BASE_URL = "https://your-backend.vercel.app";
 
 // ===== Mock Data for Demo =====
 const courses = [
@@ -151,7 +142,8 @@ function validateEmail(email) {
 
 // ===== AUTHENTICATION =====
 function authenticateUser(role, email, password) {
-    // 🔁 UPDATED: uses API_BASE_URL instead of hardcoded localhost
+    console.log("👉 Calling login API at:", `${API_BASE_URL}/api/login`);
+
     fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -169,7 +161,7 @@ function authenticateUser(role, email, password) {
         loginSuccess(data.user);
     })
     .catch(err => {
-        console.error(err);
+        console.error("NETWORK ERROR:", err);
         alert("Network error");
     });
 }
