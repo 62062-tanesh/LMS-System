@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const res = await fetch(`${API_BASE}/api/verify-otp`, {
+            const res = await fetch(`${API_BASE}api/verify-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: tempEmail, otp })
