@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000"; // backend URL
+const API_BASE = "https://lms-system-u3z9.vercel.app/"; // backend URL
 
 document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");

@@ -137,7 +137,7 @@ function validateEmail(email) {
 
 // ===== AUTHENTICATION =====
 function authenticateUser(role, email, password) {
-    fetch("http://localhost:5000/api/login", {
+    fetch("https://lms-system-u3z9.vercel.app/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ role, email, password })
