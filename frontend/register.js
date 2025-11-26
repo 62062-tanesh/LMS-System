@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const res = await fetch(`${API_BASE}/api/send-otp`, {
+            const res = await fetch(`${API_BASE}api/send-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ role, name, email, password })
